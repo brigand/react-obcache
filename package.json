@@ -1,0 +1,45 @@
+{
+  "name": "react-obcache",
+  "version": "0.2.0",
+  "description": "observable based cache interface for client side apps",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "mocha lib/__test__/*",
+    "build": "babel src --out-dir lib",
+    "dev": "npm run build -- --watch",
+    "dev-test": "npm run test -- --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brigand/react-obcache.git"
+  },
+  "keywords": [
+    "cache",
+    "observable",
+    "react"
+  ],
+  "author": "Frankie Bagnardi <f.bagnardi@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/brigand/react-obcache/issues"
+  },
+  "homepage": "https://github.com/brigand/react-obcache#readme",
+  "devDependencies": {
+    "babel": "^6.0.15",
+    "babel-cli": "^6.1.1",
+    "babel-core": "^6.0.20",
+    "babel-plugin-external-helpers-2": "^6.0.15",
+    "babel-preset-es2015": "^6.0.15",
+    "babel-preset-react": "^6.0.15",
+    "babel-preset-stage-1": "^6.0.15",
+    "chai": "^3.4.0",
+    "chok": "^0.2.0",
+    "jsdom": "^7.0.2",
+    "mocha": "^2.3.3",
+    "mocha-jsdom": "^1.0.0",
+    "obcache": "^0.2.1",
+    "react": "^0.14.2",
+    "react-dom": "^0.14.2",
+    "sinon": "^1.17.2"
+  }
+}
