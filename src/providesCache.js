@@ -2,9 +2,9 @@ import React from 'react';
 
 export default function providesCache(opts, Component){
   if (typeof opts === 'function') return providesCache({}, Component);
-  if (arguments.length === 1) return providesCache.bind(null, opts || {});
+  if (arguments.length < 2) return providesCache.bind(null, opts || {});
 
-  return class CacheProvider extends React.Component {
+  class CacheProvider extends React.Component {
     constructor(){
       super();
       this.state = {data: {}, errors: {}};
@@ -74,5 +74,7 @@ export default function providesCache(opts, Component){
       );
     }
   }
+  Object.setPrototypeOf(CacheProvider, Component);
+  return CacheProvider;
 }
 
