@@ -1,6 +1,6 @@
 {
   "name": "react-obcache",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "description": "observable based cache interface for client side apps",
   "main": "lib/index.js",
   "scripts": {
