@@ -75,7 +75,7 @@ export default function providesCache(opts, Component){
     }
   }
   console.log(Object.getOwnPropertyNames(Component));
-  Object.getOwnPropertyNames(Component).forEach((key) => {
+  Object.keys(Component).forEach((key) => {
     if (['length', 'name', 'prototype', 'toString', 'displayName'].indexOf(key) !== -1) {
       return;
     }
