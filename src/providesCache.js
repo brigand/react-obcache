@@ -74,7 +74,20 @@ export default function providesCache(opts, Component){
       );
     }
   }
-  Object.setPrototypeOf(CacheProvider, Component);
+  console.log(Object.getOwnPropertyNames(Component));
+  Object.getOwnPropertyNames(Component).forEach((key) => {
+    if (['length', 'name', 'prototype', 'toString', 'displayName'].indexOf(key) !== -1) {
+      return;
+    }
+
+    if (key === 'propTypes') {
+      var propTypes = Object.assign({}, Component.propTypes, {cache: undefined, onCacheFieldsChange: undefined});
+      CacheProvier.propTypes = propTypes; 
+    }
+    else {
+      CacheProvider[key] = Component[key];
+    }
+  });
   return CacheProvider;
 }
 
