@@ -7,7 +7,8 @@
     "test": "mocha lib/__test__/*",
     "build": "babel src --out-dir lib",
     "dev": "npm run build -- --watch",
-    "dev-test": "npm run test -- --watch"
+    "dev-test": "npm run test -- --watch",
+    "prepublish": "npm run build"
   },
   "repository": {
     "type": "git",

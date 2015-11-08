@@ -81,7 +81,7 @@ export default function providesCache(opts, Component){
     }
 
     if (key === 'propTypes') {
-      var propTypes = Object.assign({}, Component.propTypes})
+      var propTypes = Object.assign({}, Component.propTypes)
       delete propTypes.cache;
       delete propTypes.onCacheFieldsChange;
       CacheProvider.propTypes = propTypes; 
