@@ -74,14 +74,16 @@ export default function providesCache(opts, Component){
       );
     }
   }
-  console.log(Object.getOwnPropertyNames(Component));
+
   Object.keys(Component).forEach((key) => {
     if (['length', 'name', 'prototype', 'toString', 'displayName'].indexOf(key) !== -1) {
       return;
     }
 
     if (key === 'propTypes') {
-      var propTypes = Object.assign({}, Component.propTypes, {cache: undefined, onCacheFieldsChange: undefined});
+      var propTypes = Object.assign({}, Component.propTypes})
+      delete propTypes.cache;
+      delete propTypes.onCacheFieldsChange;
       CacheProvider.propTypes = propTypes; 
     }
     else {
