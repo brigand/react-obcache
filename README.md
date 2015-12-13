@@ -10,7 +10,7 @@ Works in react versions with React.Component (0.13+). Requires an es6 shim.
 
 ## Usage
 
-A high order component is provided which passes two props: cache, and onFieldsChange.
+A high order component is provided which passes two props: cache, and onCacheFieldsChange.
 
 You normally create your obcache in a module named cache.js:
 
@@ -25,7 +25,7 @@ export default obcache;
 ```
 
 
-In your components call `this.props.onCacheChange` with the keys and cache observables you want
+In your components call `this.props.onCacheFieldsChange` with the keys and cache observables you want
 to be exposed. You can call this again at any time, and it diffs the object to determine if keys
 were added/removed/changed, and handles fetching the values. Your data will never fall out of sync
 because memoized observables are used internally.
@@ -37,7 +37,7 @@ import cache from './cache';
 @providesCache()
 class Foo extends React.Component {
   componentDidMount(){
-    this.props.onCacheChange({
+    this.props.onCacheFieldsChange({
       num: cache.get('doubled', 5),
     })
   }
