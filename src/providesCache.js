@@ -12,6 +12,13 @@ export default function providesCache(opts, Component){
       this.subscriptions = {};
     }
 
+    componentWillUnmount() {
+      Object.keys(this.subscriptions).forEach((key) => {
+        this.cleanUp(key);
+      });
+      this.subscriptions = null;
+    }
+
     handleCacheFieldsChange(fields){
       var data = {}, errors = {}, hitKeys = {};
       Object.keys(fields).forEach((key) => {
@@ -84,7 +91,7 @@ export default function providesCache(opts, Component){
       var propTypes = Object.assign({}, Component.propTypes)
       delete propTypes.cache;
       delete propTypes.onCacheFieldsChange;
-      CacheProvider.propTypes = propTypes; 
+      CacheProvider.propTypes = propTypes;
     }
     else {
       CacheProvider[key] = Component[key];
@@ -92,4 +99,3 @@ export default function providesCache(opts, Component){
   });
   return CacheProvider;
 }
-
