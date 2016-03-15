@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default function providesCache(opts, Component){
-  if (typeof opts === 'function') return providesCache({}, Component);
+  if (typeof opts === 'function') return providesCache({}, opts);
   if (arguments.length < 2) return providesCache.bind(null, opts || {});
 
   class CacheProvider extends React.Component {
